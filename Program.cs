@@ -9,6 +9,13 @@ while (!string.IsNullOrWhiteSpace(line = Console.ReadLine()))
 	Console.Error.WriteLine("stdin: {0}", line);
 
 	string[] kvp = line.Split('=', 2, StringSplitOptions.None);
+
+	if (kvp.Length != 2)
+	{
+		Console.Error.WriteLine("warning: invalid credential line '{0}'", line);
+		continue;
+	}
+
 	string key = kvp[0];
 	string value = kvp[1];
 
